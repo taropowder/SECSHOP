@@ -1,0 +1,21 @@
+version: "2.1"
+
+services:
+  web:
+    build: .
+    depends_on:
+      - mysql
+    restart: always
+    ports:
+      - "8888:80"
+    volumes:
+      - ./secshop/:/var/www/html/
+  mysql:
+    image: mysql:5.5
+    volumes:
+      - /var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=secshop
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - ./secshop/secshop.sql:/docker-entrypoint-initdb.d/data.sql
