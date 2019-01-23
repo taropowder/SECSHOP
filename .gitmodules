@@ -1,0 +1,3 @@
+[submodule "shopChecker"]
+	path = shopChecker
+	url = http://datsec.cn:10080/taro/shopChecker
