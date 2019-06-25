@@ -9,7 +9,7 @@ if (isset($_GET['id'])){
     include_once "sqlhelper.php";
     $mysql = new sqlhelper();
     $id = addslashes($_GET['id']);
-    $sql = "UPDATE goods SET num = num - 1 WHERE id = '$id'";
+    $sql = "UPDATE goods SET num = num - 1 WHERE id = $id";
     $res = $mysql->execute_dml($sql);
     if ($res){
         header("Location: list.php");
